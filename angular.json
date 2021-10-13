@@ -67,7 +67,8 @@
               "browserTarget": "veterinarian:build:production"
             },
             "development": {
-              "browserTarget": "veterinarian:build:development"
+              "browserTarget": "veterinarian:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
