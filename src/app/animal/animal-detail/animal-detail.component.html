@@ -5,6 +5,6 @@
   Email :
   <a [appMailto]="animal?.email">{{ animal?.email }}</a
   ><br />
-  Téléphone : {{ animal?.phoneNumber }}<br />
+  Téléphone : {{ animal?.phoneNumber | phone: "-" }}<br />
   Commentaire : {{ animal?.comment }}
 </p>
