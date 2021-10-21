@@ -9,10 +9,15 @@ import { AnimalService } from '../../shared/api/animal.service';
 })
 export class AnimalDetailComponent implements OnInit {
   animal?: Animal;
+  isLoading: boolean;
 
   constructor(private animalService: AnimalService) {}
 
   ngOnInit(): void {
-    this.animal = this.animalService.get();
+    this.isLoading = true;
+    this.animalService.get(1).subscribe((data) => {
+      this.isLoading = false;
+      this.animal = data;
+    });
   }
 }
