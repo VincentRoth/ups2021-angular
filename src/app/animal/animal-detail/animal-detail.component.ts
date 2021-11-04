@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Animal } from '../../shared/api/animal';
 import { AnimalService } from '../../shared/api/animal.service';
 
@@ -11,11 +12,17 @@ export class AnimalDetailComponent implements OnInit {
   animal?: Animal;
   isLoading: boolean;
 
-  constructor(private animalService: AnimalService) {}
+  constructor(
+    private animalService: AnimalService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.animalService.get(1).subscribe((data) => {
+
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.animalService.get(Number(id)).subscribe((data) => {
       this.isLoading = false;
       this.animal = data;
     });

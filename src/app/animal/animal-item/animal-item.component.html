@@ -1,2 +1,3 @@
-{{ model.name }} - {{ model.species }}
+<a [routerLink]="['animal', model.id]">{{ model.name }}</a> -
+{{ model.species }}
 <button (click)="onItemDeletion()">Suppression</button>
