@@ -15,6 +15,5 @@ import { AnimalRootComponent } from './animal-root/animal-root.component';
     AnimalRootComponent,
   ],
   imports: [CommonModule, SharedModule, AnimalRoutingModule],
-  exports: [AnimalDetailComponent, AnimalListComponent],
 })
 export class AnimalModule {}
