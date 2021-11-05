@@ -8,6 +8,8 @@ import { AnimalRoutingModule } from './animal-routing.module';
 import { AnimalRootComponent } from './animal-root/animal-root.component';
 import { AnimalFormComponent } from './animal-form/animal-form.component';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,13 @@ import { FormsModule } from '@angular/forms';
     AnimalRootComponent,
     AnimalFormComponent,
   ],
-  imports: [CommonModule, SharedModule, AnimalRoutingModule, FormsModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    AnimalRoutingModule,
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+  ],
 })
 export class AnimalModule {}
