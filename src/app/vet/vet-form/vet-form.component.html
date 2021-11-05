@@ -1,0 +1,9 @@
+<form [formGroup]="vetFormGroup" (ngSubmit)="onSubmit()" *ngIf="vetFormGroup">
+  <label for="firstName">Prénom</label>
+  <input type="text" id="firstName" formControlName="firstName" /><br />
+
+  <label for="lastName">Nom</label>
+  <input type="text" id="lastName" formControlName="lastName" /><br />
+
+  <button type="submit">Envoyer</button>
+</form>
