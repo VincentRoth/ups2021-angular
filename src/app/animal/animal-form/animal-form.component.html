@@ -1,13 +1,24 @@
-<form (ngSubmit)="onSubmit()" *ngIf="model">
+<form #animalForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="model">
   <label for="name">Nom</label>
-  <input type="text" id="name" [(ngModel)]="model.name" name="name" /><br />
+  <input
+    type="text"
+    id="name"
+    [(ngModel)]="model.name"
+    name="name"
+    required
+    #nameCtrl="ngModel"
+  /><br />
+  <p *ngIf="nameCtrl.errors?.required">Ce champ est requis.</p>
   <label for="species">Espèce</label>
   <input
     type="text"
     id="species"
     [(ngModel)]="model.species"
     name="species"
+    required
+    #speciesCtrl="ngModel"
   /><br />
+  <p *ngIf="speciesCtrl.errors?.required">Ce champ est requis.</p>
   <label for="email">Email</label>
   <input type="text" id="email" [(ngModel)]="model.email" name="email" /><br />
   <label for="phoneNumber">Téléphone</label>
@@ -23,9 +34,12 @@
     id="veterinarian"
     [(ngModel)]="model.veterinarian"
     name="veterinarian"
+    required
+    #vetCtrl="ngModel"
   /><br />
+  <p *ngIf="vetCtrl.errors?.required">Ce champ est requis.</p>
   <label for="comment">Commentaire</label>
   <textarea id="comment" [(ngModel)]="model.comment" name="comment"></textarea
   ><br />
-  <button type="submit">Envoyer</button>
+  <button type="submit" [disabled]="animalForm.form.invalid">Envoyer</button>
 </form>
