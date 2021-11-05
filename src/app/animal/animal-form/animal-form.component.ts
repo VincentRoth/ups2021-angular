@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Animal } from '../../shared/api/animal';
 import { AnimalService } from '../../shared/api/animal.service';
@@ -36,15 +37,17 @@ export class AnimalFormComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {
-    const onSave = () => {
-      this.router.navigate(['/animal']);
-    };
+  onSubmit(form: FormGroup): void {
+    if (form.valid) {
+      const onSave = () => {
+        this.router.navigate(['/animal']);
+      };
 
-    if (this.model.id) {
-      this.animalService.update(this.model).subscribe(onSave);
-    } else {
-      this.animalService.create(this.model).subscribe(onSave);
+      if (this.model.id) {
+        this.animalService.update(this.model).subscribe(onSave);
+      } else {
+        this.animalService.create(this.model).subscribe(onSave);
+      }
     }
   }
 }
