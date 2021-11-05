@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vet } from '../../shared/api/vet';
 import { VetService } from '../../shared/api/vet.service';
@@ -49,8 +49,8 @@ export class VetFormComponent implements OnInit {
   private initForm(model?: Vet): void {
     this.vetFormGroup = new FormGroup({
       id: new FormControl(model?.id),
-      firstName: new FormControl(model?.firstName),
-      lastName: new FormControl(model?.lastName),
+      firstName: new FormControl(model?.firstName, Validators.required),
+      lastName: new FormControl(model?.lastName, Validators.required),
     });
   }
 }
